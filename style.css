@@ -11,36 +11,44 @@ body {
   max-width: 400px;
   height: 70%;
   grid-template:repeat(5, auto) / repeat(4, auto);
-  grid-gap: 5px;
+  grid-gap: 7px;
   padding: 5px;
-  background-color: rgb(58, 161, 119);
+  background-color: #E1EAE4;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 2px 1px rgba(100, 100, 100, 0.3);
 }
 
 .calculator > button {
   border: none;
   border-radius: 8px;
+  box-shadow: 1px 1px 1px 1px rgb(200, 200, 200);
+  padding: none;
 }
 
 .display {
   grid-column: span 4;
-  background-color: rgb(175, 191, 177);
-  opacity: .9;
+  background-color: #EDF8FA;
+  margin: 3px;
   border: 1px solid rgb(193, 204, 196);
+  box-shadow: 1px 1px 1px 1px rgb(200, 200, 200);
 
 }
 
 .delete-button {
   grid-column: span 2;
-  background-color: rgb(219, 219, 219);
+  background-color: #DED9E2;
   color: rgb(0, 0, 0);
+  font-size: 1.1em;
 }
 
 .number {
-  background-color: rgb(180, 186, 182);
+  background-color: #82D4BB;
   color: rgb(0, 0, 0);
+  font-size: 1.1em;
 }
 
 .operator {
-  background-color: rgb(164, 164, 164);
+  background-color: #6FA0B7;
   color: rgb(0, 0, 0);
+  font-size: 1.1em;
 }
