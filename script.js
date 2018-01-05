@@ -12,6 +12,14 @@ function displayCalculation() {
   document.querySelector('.display').textContent = stringToCalculate;
 }
 
+function removeFinalCharacter() {
+  stringToCalculate = stringToCalculate.substring(0, stringToCalculate.length -1);
+  if (stringToCalculate.length < 1) {
+    stringToCalculate = "0";
+  }
+  displayCalculation();
+}
+
 let buttons = document.querySelectorAll(".number, .operator");
 
 document.addEventListener('keypress', function(e) {
@@ -30,12 +38,12 @@ document.querySelector('.clear').addEventListener('click', function() {
   displayCalculation();
 });
 
-document.querySelector('.delete').addEventListener('click', function() {
-    stringToCalculate = stringToCalculate.substring(0, stringToCalculate.length - 1);
-    if (stringToCalculate.length < 1) {
-      stringToCalculate = "0";
-    }
-    displayCalculation();
+document.querySelector('.delete').addEventListener('click', removeFinalCharacter);
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === "Backspace" || e.keyCode === 8) {
+    removeFinalCharacter();
+  }
 });
 
 for (let button of buttons) {
