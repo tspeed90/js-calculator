@@ -1,5 +1,9 @@
-let stringToCalculate = "";
+let stringToCalculate = "0";
+displayCalculation();
 function appendInputCharacter(e) {
+  if (stringToCalculate === "0") {
+    stringToCalculate = "";
+  }
   stringToCalculate += e.target.textContent;
   displayCalculation();
 }
@@ -11,10 +15,27 @@ function displayCalculation() {
 let buttons = document.querySelectorAll(".number, .operator");
 
 document.addEventListener('keypress', function(e) {
+  if (stringToCalculate === "0") {
+    stringToCalculate = "";
+  }
   if (/[0-9+\-*/=.]/.test(e.key)) {
     stringToCalculate += e.key;
+    displayCalculation();
     console.log(stringToCalculate);
   }
+});
+
+document.querySelector('.clear').addEventListener('click', function() {
+  stringToCalculate = "0";
+  displayCalculation();
+});
+
+document.querySelector('.delete').addEventListener('click', function() {
+    stringToCalculate = stringToCalculate.substring(0, stringToCalculate.length - 1);
+    if (stringToCalculate.length < 1) {
+      stringToCalculate = "0";
+    }
+    displayCalculation();
 });
 
 for (let button of buttons) {
