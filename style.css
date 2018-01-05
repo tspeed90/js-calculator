@@ -27,11 +27,16 @@ body {
 
 .display {
   grid-column: span 4;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
   background-color: #EDF8FA;
   margin: 3px;
   border: 1px solid rgb(193, 204, 196);
   box-shadow: 1px 1px 1px 1px rgb(200, 200, 200);
-
+  text-align: right;
+  font-size: 1.3em;
+  padding: 0 5px;
 }
 
 .delete-button {
