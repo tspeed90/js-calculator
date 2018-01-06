@@ -25,7 +25,7 @@ function calculate() {
   let operators = /[+\-/*]/;
   let values = stringToCalculate.split(operators);
   stringToCalculate = values.reduce((sum, value) => {
-      value = parseInt(value, 10);
+      value = parseFloat(value, 10);
       return sum + value;
   }, 0);
   stringToCalculate = stringToCalculate.toString();
