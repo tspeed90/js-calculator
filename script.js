@@ -10,7 +10,9 @@ function appendInputCharacter(e) {
 }
 
 function displayCalculation() {
-  document.querySelector('.display').textContent = stringToCalculate;
+  let displayString = stringToCalculate.replace("*", " * ").replace('+',' + ').replace('-',' - ').replace('/',' / ');
+  document.querySelector('.display').textContent = displayString;
+
 }
 
 function removeFinalCharacter() {

@@ -19,7 +19,10 @@ body {
 }
 
 .calculator > button {
-  border: none;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  color: #333;
+  font-size: 1.4em;
   border-radius: 8px;
   box-shadow: 1px 1px 1px 1px rgb(200, 200, 200);
   padding: none;
@@ -27,6 +30,7 @@ body {
 
 .display {
   grid-column: span 4;
+  font-family: 'LCD-Bold';
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
@@ -35,25 +39,38 @@ body {
   border: 1px solid rgb(193, 204, 196);
   box-shadow: 1px 1px 1px 1px rgb(200, 200, 200);
   text-align: right;
-  font-size: 1.3em;
+  font-size: 1.7em;
   padding: 0 5px;
 }
 
 .delete-button {
   grid-column: span 2;
-  background-color: #DED9E2;
+  background-color: #EEBBBB;
+  border: solid 2px #EEBBBB;
   color: rgb(0, 0, 0);
   font-size: 1.1em;
 }
 
 .number {
   background-color: #82D4BB;
+  border: solid 2px #82D4BB;
   color: rgb(0, 0, 0);
   font-size: 1.1em;
 }
 
 .operator {
   background-color: #6FA0B7;
+  border: solid 2px #6FA0B7;
   color: rgb(0, 0, 0);
   font-size: 1.1em;
+}
+.equals {
+  background-color: #EEDD66;
+}
+.calculator > button.selected {
+  box-sizing: border-box;
+  border: solid 2px #000;
+}
+/*button:nth-child(7) {
+  background-color: white;
 }
