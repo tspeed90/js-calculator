@@ -1,3 +1,6 @@
+let clearButton = document.querySelector('.clear');
+let deleteButton = document.querySelector('.delete');
+let equalsButton = document.querySelector('.equals');
 let stringToCalculate = "0";
 displayCalculation();
 
@@ -5,14 +8,13 @@ function appendInputCharacter(e) {
   if (stringToCalculate === "0") {
     stringToCalculate = "";
   }
-  stringToCalculate += e.target.textContent;
+  stringToCalculate += e.target.textContent.trim();
   displayCalculation();
 }
 
 function displayCalculation() {
   let displayString = stringToCalculate.replace("*", " * ").replace('+',' + ').replace('-',' - ').replace('/',' / ');
   document.querySelector('.display').textContent = displayString;
-
 }
 
 function removeFinalCharacter() {
@@ -22,7 +24,7 @@ function removeFinalCharacter() {
   }
   displayCalculation();
 }
-//TODO: add to keyboard event listener AND to click event listener
+
 function calculate() {
   let operators = /[+\-/*]/;
   let values = stringToCalculate.split(operators);
@@ -33,36 +35,58 @@ function calculate() {
   stringToCalculate = stringToCalculate.toString();
 }
 
+function removeSelectedClass(e) {
+    this.classList.remove('selected');
+}
+
 let buttons = document.querySelectorAll(".number, .operator");
 
-document.addEventListener('keyup', function(e) {
+document.addEventListener('keydown', function(e) {
   if (e.key === "Backspace" || e.keyCode === 8) {
+    deleteButton.classList.add('selected');
     removeFinalCharacter();
   } else if (e.key === "=") {
+    equalsButton.classList.add('selected');
     console.log(stringToCalculate)
     calculate();
   } else if (/[0-9+\-*/=.]/.test(e.key)) {
+    for (let i = 0; i < buttons.length; i++) {
+      if (buttons[i].textContent.trim() === e.key) {
+        buttons[i].classList.add("selected");
+      }
+    }
     if (stringToCalculate === "0") {
       stringToCalculate = "";
     }
     stringToCalculate += e.key;
-    console.log(stringToCalculate);
   }
   displayCalculation();
 });
 
-document.querySelector('.clear').addEventListener('click', function() {
+clearButton.addEventListener('click', function() {
   stringToCalculate = "0";
   displayCalculation();
+  clearButton.classList.add('selected');
 });
+clearButton.addEventListener('transitionend', removeSelectedClass);
 
-document.querySelector('.delete').addEventListener('click', removeFinalCharacter);
+deleteButton.addEventListener('click', function() {
+  removeFinalCharacter();
+  deleteButton.classList.add('selected');
+});
+deleteButton.addEventListener('transitionend', removeSelectedClass);
 
 for (let button of buttons) {
-  button.addEventListener('click', appendInputCharacter);
+  button.addEventListener('click', function(e) {
+    appendInputCharacter(e);
+    button.classList.add('selected');
+  });
+  button.addEventListener('transitionend', removeSelectedClass);
 }
 
-document.querySelector('.equals').addEventListener('click', function() {
+equalsButton.addEventListener('click', function() {
+  equalsButton.classList.add('selected');
   calculate();
   displayCalculation();
 });
+equalsButton.addEventListener('transitionend', removeSelectedClass);

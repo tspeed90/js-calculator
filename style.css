@@ -66,11 +66,9 @@ body {
 }
 .equals {
   background-color: #EEDD66;
+  border: solid 2px #EEDD66;
 }
 .calculator > button.selected {
-  box-sizing: border-box;
   border: solid 2px #000;
-}
-/*button:nth-child(7) {
-  background-color: white;
+  transition: all .1s;
 }
