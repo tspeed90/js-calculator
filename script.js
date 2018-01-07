@@ -42,6 +42,7 @@ function removeSelectedClass(e) {
 let buttons = document.querySelectorAll(".number, .operator");
 
 document.addEventListener('keydown', function(e) {
+  console.log(e.key);
   if (e.key === "Backspace" || e.keyCode === 8) {
     deleteButton.classList.add('selected');
     removeFinalCharacter();
@@ -49,7 +50,7 @@ document.addEventListener('keydown', function(e) {
     equalsButton.classList.add('selected');
     console.log(stringToCalculate)
     calculate();
-  } else if (/[0-9+\-*/=.]/.test(e.key)) {
+  } else if (/^[0-9\-*\/=+.]$/.test(e.key)) {
     for (let i = 0; i < buttons.length; i++) {
       if (buttons[i].textContent.trim() === e.key) {
         buttons[i].classList.add("selected");
