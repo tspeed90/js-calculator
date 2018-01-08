@@ -33,10 +33,11 @@ function calculate() {
       return sum + value;
   }, 0);
   stringToCalculate = stringToCalculate.toString();
+  displayCalculation();
 }
 
 function removeSelectedClass(e) {
-    this.classList.remove('selected');
+  this.classList.remove('selected');
 }
 
 let buttons = document.querySelectorAll(".number, .operator");
@@ -88,6 +89,5 @@ for (let button of buttons) {
 equalsButton.addEventListener('click', function() {
   equalsButton.classList.add('selected');
   calculate();
-  displayCalculation();
 });
 equalsButton.addEventListener('transitionend', removeSelectedClass);
