@@ -2,6 +2,7 @@ html {
   height: 100%;
   overflow: hidden;
 }
+
 body {
   height: 100%;
   display: block;
@@ -12,7 +13,8 @@ body {
 
 .calculator {
   display: inline-grid;
-  grid-template: repeat(5, auto) / repeat(4, 80px);
+  width: 300px;
+  grid-template: repeat(5, auto) / repeat(4, auto);
   grid-gap: 7px;
   padding: 10px;
   background-color: #E1EAE4;
