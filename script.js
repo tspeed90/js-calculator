@@ -13,7 +13,7 @@ function appendInputCharacter(e) {
 }
 
 function displayCalculation() {
-  let displayString = stringToCalculate.replace("*", " * ").replace('+',' + ').replace('-',' - ').replace('/',' / ');
+  let displayString = stringToCalculate.replace(/[*]/g, " * ").replace(/[+]/g,' + ').replace(/[\-]/g,' - ').replace(/[\/]/g,' / ');
   document.querySelector('.display').textContent = displayString;
 }
 
