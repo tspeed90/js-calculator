@@ -28,12 +28,6 @@ function calculate() {
   stringToCalculate = eval(stringToCalculate);
   displayCalculation();
 }
-  /*let values = stringToCalculate.split(operators);
-  stringToCalculate = values.reduce((sum, value) => {
-      value = parseFloat(value, 10);
-      return sum + value;
-  }, 0);*/
-
 
 function removeSelectedClass(e) {
   this.classList.remove('selected');

@@ -1,14 +1,14 @@
 html {
-  height: 150%;
+  height: 125%;
   overflow: hidden;
 }
 
 body {
-  height: 150%;
+  height: 125%;
   display: block;
   text-align: center;
   margin: 30px auto;
-  background: linear-gradient(rgba(37, 37, 177, 0.9), rgba(238, 192, 107, 0.9));
+  background: linear-gradient(rgba(60, 60, 182, 0.9), rgba(238, 192, 107, 0.9));
 }
 
 .calculator {
