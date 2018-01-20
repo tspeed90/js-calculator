@@ -13,8 +13,7 @@ function appendInputCharacter(e) {
 }
 
 function displayCalculation() {
-  let displayString = stringToCalculate.replace(/[*]/g, " * ").replace(/[+]/g,' + ').replace(/[\-]/g,' - ').replace(/[\/]/g,' / ');
-  document.querySelector('.display').textContent = displayString;
+  document.querySelector('.display').textContent = stringToCalculate;
 }
 
 function removeFinalCharacter() {
@@ -26,15 +25,15 @@ function removeFinalCharacter() {
 }
 
 function calculate() {
-  let operators = /[+\-/*]/;
-  let values = stringToCalculate.split(operators);
+  stringToCalculate = eval(stringToCalculate);
+  displayCalculation();
+}
+  /*let values = stringToCalculate.split(operators);
   stringToCalculate = values.reduce((sum, value) => {
       value = parseFloat(value, 10);
       return sum + value;
-  }, 0);
-  stringToCalculate = stringToCalculate.toString();
-  displayCalculation();
-}
+  }, 0);*/
+
 
 function removeSelectedClass(e) {
   this.classList.remove('selected');
@@ -43,13 +42,11 @@ function removeSelectedClass(e) {
 let buttons = document.querySelectorAll(".number, .operator");
 
 document.addEventListener('keydown', function(e) {
-  console.log(e.key);
   if (e.key === "Backspace" || e.keyCode === 8) {
     deleteButton.classList.add('selected');
     removeFinalCharacter();
   } else if (e.key === "=") {
     equalsButton.classList.add('selected');
-    console.log(stringToCalculate)
     calculate();
   } else if (/^[0-9\-*\/=+.]$/.test(e.key)) {
     for (let i = 0; i < buttons.length; i++) {
