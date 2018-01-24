@@ -24,10 +24,7 @@ function removeFinalCharacter() {
   displayCalculation();
 }
 
-function calculate() {
-  stringToCalculate = eval(stringToCalculate);
-  displayCalculation();
-}
+
 
 function removeSelectedClass(e) {
   this.classList.remove('selected');
@@ -38,7 +35,7 @@ let buttons = document.querySelectorAll(".number, .operator");
 document.addEventListener('keydown', function(e) {
   if (e.key === "Backspace" || e.keyCode === 8) {
     deleteButton.classList.add('selected');
-    removeFinalCharacter();
+    removeFinalCharacter(); 
   } else if (e.key === "=") {
     equalsButton.classList.add('selected');
     calculate();
