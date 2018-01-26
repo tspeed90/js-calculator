@@ -37,6 +37,12 @@ function evaluateTokens(tokens) {
   for (let i = 1; i < tokens.length; i++) {
     if (tokens[i] === '+') {
       accumulator += tokens[i + 1];
+    } else if (tokens[i] === '-') {
+      accumulator -= tokens[i + 1];
+    } else if (tokens[i] === '*') {
+      accumulator *= tokens[i + 1];
+    } else if (tokens[i] === '/') {
+      accumulator /= tokens[i + 1];
     }
   }
   return accumulator;
@@ -51,7 +57,7 @@ function isDigit(character) {
 }
 
 function isOperator(character) {
-  if (character === "+") {
+  if (character === "+" || character === "-" || character === "*" || character === "/") {
     return true;
   } else {
     return false;
