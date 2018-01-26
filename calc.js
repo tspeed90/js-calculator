@@ -21,14 +21,14 @@ function parseInput() {
       if (isDigit(character)) {
         nextToken += character;
       } else if (isOperator(character)) {
-        tokens.push(parseInt(nextToken, 10));
+        tokens.push(parseFloat(nextToken, 10));
         tokens.push(character);
         nextToken = "";
         nextTokenType = null;
       }
     }
   }
-  tokens.push(parseInt(nextToken, 10));
+  tokens.push(parseFloat(nextToken, 10));
   return tokens;
 }
 
@@ -49,7 +49,7 @@ function evaluateTokens(tokens) {
 }
   
 function isDigit(character) {
-  if (/[0-9]/.test(character)) {
+  if (/[0-9.]/.test(character)) {
     return true;
   } else {
     return false;
