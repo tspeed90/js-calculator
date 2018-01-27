@@ -28,7 +28,11 @@ function parseInput() {
       }
     }
   }
-  tokens.push(parseFloat(nextToken, 10));
+  if (/[0-9.]/.test(nextToken)) {
+    tokens.push(parseFloat(nextToken, 10));
+  } else {
+    tokens.pop();
+  }
   return tokens;
 }
 
