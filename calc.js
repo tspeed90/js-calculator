@@ -1,10 +1,4 @@
-function calculate() {
-  let tokens = parseInput();
-  stringToCalculate = evaluateTokens(tokens) + "";
-  displayCalculation();
-}
-
-function parseInput() {
+function parseInput(stringToCalculate) {
   let tokens = [];
   let nextToken = "";
   let nextTokenType = null;

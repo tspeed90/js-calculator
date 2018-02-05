@@ -1,6 +1,7 @@
 let clearButton = document.querySelector('.clear');
 let deleteButton = document.querySelector('.delete');
 let equalsButton = document.querySelector('.equals');
+let display = document.querySelector('.display');
 let stringToCalculate = "0";
 displayCalculation();
 
@@ -13,7 +14,7 @@ function appendInputCharacter(e) {
 }
 
 function displayCalculation() {
-  document.querySelector('.display').textContent = stringToCalculate;
+  display.textContent = stringToCalculate;
 }
 
 function removeFinalCharacter() {
@@ -24,7 +25,16 @@ function removeFinalCharacter() {
   displayCalculation();
 }
 
-
+function calculate() {
+  try {
+    let tokens = parseInput(stringToCalculate);
+    stringToCalculate = evaluateTokens(tokens) + "";
+    displayCalculation();
+  } catch(e) {
+    display.style.border = "solid 2px red";
+    throw e;
+  }
+}
 
 function removeSelectedClass(e) {
   this.classList.remove('selected');
