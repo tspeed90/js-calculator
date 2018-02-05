@@ -28,25 +28,36 @@ function parseInput() {
       }
     }
   }
-  if (/[0-9.]/.test(nextToken)) {
+  if (isDigit(nextToken)) {
     tokens.push(parseFloat(nextToken, 10));
-  } else {
+  }
+  
+  while(isOperator(tokens[tokens.length -1])) {
     tokens.pop();
   }
   return tokens;
 }
 
 function evaluateTokens(tokens) {
-  let accumulator = tokens[0];
   for (let i = 1; i < tokens.length; i++) {
+    if (tokens[i] === '*') {
+      tokens[i-1] *= tokens[i + 1];
+      tokens.splice(i, 2); 
+      i--;
+    } else if (tokens[i] === '/') {
+      tokens[i-1] /= tokens[i + 1];
+      tokens.splice(i, 2);
+      i--;
+    }
+    console.log(tokens);
+  }
+  let accumulator = tokens[0];
+  for (let i = 0; i < tokens.length; i++) {
     if (tokens[i] === '+') {
       accumulator += tokens[i + 1];
     } else if (tokens[i] === '-') {
+      console.log(accumulator)
       accumulator -= tokens[i + 1];
-    } else if (tokens[i] === '*') {
-      accumulator *= tokens[i + 1];
-    } else if (tokens[i] === '/') {
-      accumulator /= tokens[i + 1];
     }
   }
   return accumulator;
