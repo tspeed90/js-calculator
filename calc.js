@@ -1,4 +1,5 @@
 function parseInput(stringToCalculate) {
+  stringToCalculate = stringToCalculate.replace(/(\d)[-]/g, '$1+-');
   let tokens = [];
   let nextToken = "";
   let nextTokenType = null;
@@ -43,22 +44,18 @@ function evaluateTokens(tokens) {
       tokens.splice(i, 2);
       i--;
     }
-    console.log(tokens);
   }
   let accumulator = tokens[0];
   for (let i = 0; i < tokens.length; i++) {
     if (tokens[i] === '+') {
       accumulator += tokens[i + 1];
-    } else if (tokens[i] === '-') {
-      console.log(accumulator)
-      accumulator -= tokens[i + 1];
     }
   }
   return accumulator;
 }
   
 function isDigit(character) {
-  if (/[0-9.]/.test(character)) {
+  if (/[0-9.-]/.test(character)) {
     return true;
   } else {
     return false;
@@ -66,7 +63,7 @@ function isDigit(character) {
 }
 
 function isOperator(character) {
-  if (character === "+" || character === "-" || character === "*" || character === "/") {
+  if (character === "+" || character === "*" || character === "/") {
     return true;
   } else {
     return false;
