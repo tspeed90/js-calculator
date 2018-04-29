@@ -16,6 +16,7 @@ function parseInput(stringToCalculate) {
       if (isDigit(character)) {
         nextToken += character;
       } else if (isOperator(character)) {
+        nextToken = nextToken.replace(/\-\-/g, '');    
         tokens.push(parseFloat(nextToken, 10));
         tokens.push(character);
         nextToken = "";
@@ -24,6 +25,7 @@ function parseInput(stringToCalculate) {
     }
   }
   if (isDigit(nextToken)) {
+    nextToken = nextToken.replace(/\-\-/g, '');
     tokens.push(parseFloat(nextToken, 10));
   }
   
