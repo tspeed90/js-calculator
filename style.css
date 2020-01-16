@@ -8,7 +8,8 @@ body {
   display: block;
   text-align: center;
   margin: 30px auto;
-  background: linear-gradient(rgba(60, 60, 182, 0.9), rgba(238, 192, 107, 0.9));
+  /* background: rgba(60, 60, 182, 0.9); */
+  /* background: linear-gradient(rgba(60, 60, 182, 0.9), rgba(238, 192, 107, 0.9)); */
 }
 
 .calculator {
@@ -17,7 +18,7 @@ body {
   grid-template: repeat(5, auto) / repeat(4, auto);
   grid-gap: 7px;
   padding: 10px;
-  background-color: #E1EAE4;
+  background-color: #e1eae4;
   box-shadow: 2px 2px 2px 2px rgba(50, 50, 50, 0.4);
 }
 
@@ -38,7 +39,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
-  background-color: #EDF8FA;
+  background-color: #edf8fa;
   margin: 3px;
   border: 1px solid rgb(193, 204, 196);
   box-shadow: 1px 1px 1px 1px rgb(170, 170, 170);
@@ -49,15 +50,15 @@ body {
 
 .delete-button {
   grid-column: span 2;
-  background-color: #EEBBBB;
-  border: solid 2px #EEBBBB;
+  background-color: #eebbbb;
+  border: solid 2px #eebbbb;
   color: rgb(0, 0, 0);
   font-size: 1.1em;
 }
 
 .number {
-  background-color: #82D4BB;
-  border: solid 2px #82D4BB;
+  background-color: #82d4bb;
+  border: solid 2px #82d4bb;
   color: rgb(0, 0, 0);
   font-size: 1.1em;
 }
@@ -69,10 +70,14 @@ body {
   font-size: 1.1em;
 }
 .equals {
-  background-color: #EEDD66;
-  border: solid 2px #EEDD66;
+  background-color: #eedd66;
+  border: solid 2px #eedd66;
 }
 .calculator > button.selected {
   border: solid 2px #000;
-  transition: all .1s;
+  transition: all 0.1s;
+}
+
+a {
+  color: #333;
 }

@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <style>
       @font-face {
         font-family: 'LCD-Bold';
-        src:url('fonts/LCD-Bold.ttf.woff') format('woff'),
-            url('fonts/LCD-Bold.ttf.svg#LCD-Bold') format('svg'),
-            url('fonts/LCD-Bold.ttf.eot'),
-            url('fonts/LCD-Bold.ttf.eot?#iefix') format('embedded-opentype');
+        src: url('fonts/LCD-Bold.ttf.woff') format('woff'),
+          url('fonts/LCD-Bold.ttf.svg#LCD-Bold') format('svg'),
+          url('fonts/LCD-Bold.ttf.eot'),
+          url('fonts/LCD-Bold.ttf.eot?#iefix') format('embedded-opentype');
         font-weight: normal;
         font-style: normal;
       }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://use.fontawesome.com/03369c347c.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand:400,500"
+      rel="stylesheet"
+    />
     <title>Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main class="calculator">
       <div class="display" aria-live="assertive"></div>
-      <button class="delete-button clear" aria-label="clear all"> CE </button>
+      <button class="delete-button clear" aria-label="clear all">CE</button>
       <button class="delete-button delete" aria-label="delete">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
       </button>
-      <button class="number"> 7 </button>
-      <button class="number"> 8 </button>
-      <button class="number"> 9 </button>
-      <button class="operator"> + </button>
-      <button class="number"> 4 </button>
-      <button class="number"> 5 </button>
-      <button class="number"> 6 </button>
-      <button class="operator" aria-label="minus"> - </button>
-      <button class="number"> 1 </button>
-      <button class="number"> 2 </button>
-      <button class="number"> 3 </button>
-      <button class="operator" aria-label="multiply"> * </button>
-      <button class="number" aria-label="period"> . </button>
-      <button class="number"> 0 </button>
-      <button class="equals" aria-label="equals"> = </button>
-      <button class="operator" aria-label="divide"> / </button>
+      <button class="number">7</button>
+      <button class="number">8</button>
+      <button class="number">9</button>
+      <button class="operator">+</button>
+      <button class="number">4</button>
+      <button class="number">5</button>
+      <button class="number">6</button>
+      <button class="operator" aria-label="minus">-</button>
+      <button class="number">1</button>
+      <button class="number">2</button>
+      <button class="number">3</button>
+      <button class="operator" aria-label="multiply">*</button>
+      <button class="number" aria-label="period">.</button>
+      <button class="number">0</button>
+      <button class="equals" aria-label="equals">=</button>
+      <button class="operator" aria-label="divide">/</button>
     </main>
+    <p>
+      Explore the repo on
+      <a href="https://github.com/tspeed90/js-calculator">Github</a>
+    </p>
     <script src="script.js"></script>
     <script src="calc.js"></script>
   </body>
